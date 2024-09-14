@@ -1,0 +1,13 @@
+server {
+    listen       $PORT;
+    listen  [::]:$PORT;
+    server_name  localhost;
+
+    $NGINX_PROXY_SERVER_EXTRA
+
+    location / {
+        $NGINX_PROXY_LOCATION_EXTRA
+
+        return $NGINX_PROXY_REDIRECT_CODE $NGINX_PROXY_REDIRECT_URL;
+    }
+}
